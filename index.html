@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenMate — AI Productivity Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">✦</div>
+                <div>
+                    <h1>GenMate</h1>
+                    <p>AI Productivity Assistant</p>
+                </div>
+            </div>
+
+            <div class="mode-section">
+                <p class="section-title">MODES</p>
+
+                <button class="mode-btn active" data-mode="chat">
+                    💬 Chat
+                </button>
+
+                <button class="mode-btn" data-mode="summarize">
+                    📝 Summarize
+                </button>
+
+                <button class="mode-btn" data-mode="rewrite">
+                    ✨ Rewrite
+                </button>
+
+                <button class="mode-btn" data-mode="brainstorm">
+                    💡 Brainstorm
+                </button>
+            </div>
+
+            <div class="sidebar-footer">
+                <p>Powered by Gemini</p>
+            </div>
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main">
+
+            <header class="topbar">
+                <div>
+                    <h2 id="mode-title">Chat</h2>
+                    <p id="mode-description">
+                        Ask GenMate anything and get a helpful response.
+                    </p>
+                </div>
+
+                <button id="clear-btn" class="clear-btn">
+                    Clear Chat
+                </button>
+            </header>
+
+
+            <!-- Chat Area -->
+            <section id="chat-box" class="chat-box">
+
+                <div class="welcome">
+                    <div class="welcome-icon">✦</div>
+                    <h2>Hey! I'm GenMate.</h2>
+                    <p>
+                        Your AI-powered productivity companion.
+                        Ask a question or choose a mode to get started.
+                    </p>
+                </div>
+
+            </section>
+
+
+            <!-- Input Area -->
+            <div class="input-area">
+
+                <textarea
+                    id="message-input"
+                    placeholder="Ask GenMate anything..."
+                    rows="1"
+                ></textarea>
+
+                <button id="send-btn" class="send-btn">
+                    ➤
+                </button>
+
+            </div>
+
+            <p class="disclaimer">
+                GenMate can make mistakes. Check important information.
+            </p>
+
+        </main>
+
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
