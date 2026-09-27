@@ -42,13 +42,40 @@ export default async function handler(req, res) {
             }
         ];
 
-        const response = await ai.models.generateContent({
+        let response;
+let lastError;
+
+for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+        response = await ai.models.generateContent({
             model: "gemini-3.8-flash",
             contents,
             config: {
                 systemInstruction
             }
         });
+
+        break;
+    } catch (error) {
+        lastError = error;
+
+        const status = error?.status;
+
+        if (status !== 503 && status !== 429) {
+            throw error;
+        }
+
+        if (attempt < 3) {
+            await new Promise(resolve =>
+                setTimeout(resolve, attempt * 1500)
+            );
+        }
+    }
+}
+
+if (!response) {
+    throw lastError;
+}
 
         return res.status(200).json({
             response: response.text
